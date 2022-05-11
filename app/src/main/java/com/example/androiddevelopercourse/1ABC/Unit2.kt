@@ -128,8 +128,9 @@ class SmartHome (val smartTvDevice: SmartTvDevice, val smartLightDevice: SmartLi
         smartTvDevice.increaseSpeakerVolume()
     }
 
+    // Cannot access 'nextChannel': Its protected in 'SmartTvDevice'
     fun changeTvChannelToNext() {
-        smartTvDevice.nextChannel()
+//        smartTvDevice.nextChannel()
     }
 
     fun turnOnLight() {
