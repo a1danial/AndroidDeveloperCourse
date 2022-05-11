@@ -1,7 +1,10 @@
 package com.example.androiddevelopercourse
 
 open class SmartDevice(val name: String, val category: String) {
+
     var deviceStatus = "online"
+
+    open val deviceType = "unknown"
 
     constructor(name: String, category: String, statusCode: Int) : this(name, category) {
         deviceStatus = when (statusCode) {
@@ -12,15 +15,19 @@ open class SmartDevice(val name: String, val category: String) {
     }
 
     open fun turnOn() {
+        deviceStatus = "on"
         println("Smart device is turned on")
     }
     open fun turnOff() {
-        println("Smart device is turned on")
+        deviceStatus = "off"
+        println("Smart device is turned off")
     }
 }
 
 class SmartTvDevice(deviceName: String, deviceCategory: String) :
     SmartDevice(name = deviceName, category = deviceCategory) {
+
+    override val deviceType = "Smart TV"
 
     var speakerVolume = 2
         set(value) {
@@ -36,16 +43,26 @@ class SmartTvDevice(deviceName: String, deviceCategory: String) :
         }
 
     override fun turnOn() {
-        deviceStatus = "on"
-        println(
-            "$name is turned on. Speaker volume is set to $speakerVolume and channel number is " +
-                    "set to $channelNumber."
-        )
+        // Original code
+//        deviceStatus = "on"
+//        println(
+//            "$name is turned on. Speaker volume is set to $speakerVolume and channel number is " +
+//                    "set to $channelNumber."
+//        )
+
+        // Super to call method from SmartDevice
+        super.turnOn()
+        println("Smart TV turned on. Speaker volume set to $speakerVolume.")
     }
 
     override fun turnOff() {
-        deviceStatus = "off"
-        println("$name turned off")
+        // Original code
+//        deviceStatus = "off"
+//        println("$name turned off")
+
+        // Super to call method from SmartDevice
+        super.turnOff()
+        println("Speaker volume increased to $speakerVolume.")
     }
 
     fun increaseSpeakerVolume() {
@@ -62,6 +79,8 @@ class SmartTvDevice(deviceName: String, deviceCategory: String) :
 class SmartLightDevice(deviceName: String, deviceCategory: String) :
         SmartDevice(name = deviceName, category = deviceCategory) {
 
+    override val deviceType = "Smart Light"
+
     var brightnessLevel = 0
         set(value) {
             if (value in 0..100) {
@@ -70,13 +89,15 @@ class SmartLightDevice(deviceName: String, deviceCategory: String) :
         }
 
     override fun turnOn() {
-        deviceStatus = "on"
+        super.turnOn()
+//        deviceStatus = "on"
         brightnessLevel = 2
         println("$name turned on. The brightness level is $brightnessLevel.")
     }
 
     override fun turnOff() {
-        deviceStatus = "off"
+        super.turnOff()
+//        deviceStatus = "off"
         brightnessLevel = 0
         println("Smart Light turned off")
     }
