@@ -17,6 +17,10 @@ open class SmartDevice2(val name: String, val category: String) {
     open fun turnOff() {
         deviceStatus = "off"
     }
+
+    fun printDeviceInfo() {
+        println("Device name: $name, category: $category, and type: $deviceType")
+    }
 }
 
 class SmartTvDevice2(deviceName: String, deviceCategory: String) :
@@ -45,9 +49,19 @@ class SmartTvDevice2(deviceName: String, deviceCategory: String) :
         println("Speaker volume increased to $speakerVolume.")
     }
 
+    fun decreaseSpeakerVolume() {
+        speakerVolume--
+        println("Speaker volume decreased to $speakerVolume.")
+    }
+
     fun nextChannel() {
         channelNumber++
         println("Channel number increased to $channelNumber.")
+    }
+
+    fun previousChannel() {
+        channelNumber--
+        println("Channel number decreased to $channelNumber.")
     }
 }
 
@@ -73,6 +87,11 @@ class SmartLightDevice2(deviceName: String, deviceCategory: String) :
         brightnessLevel++
         println("Brightness increased to $brightnessLevel.")
     }
+
+    fun decreaseBrightness() {
+        brightnessLevel--
+        println("Brightness decreased to $brightnessLevel.")
+    }
 }
 
 class SmartHome2(val smartTvDevice: SmartTvDevice2, val smartLightDevice: SmartLightDevice2) {
@@ -94,8 +113,16 @@ class SmartHome2(val smartTvDevice: SmartTvDevice2, val smartLightDevice: SmartL
         smartTvDevice.increaseSpeakerVolume()
     }
 
+    fun decreaseTvVolume() {
+        smartTvDevice.decreaseSpeakerVolume()
+    }
+
     fun changeTvChannelToNext() {
         smartTvDevice.nextChannel()
+    }
+
+    fun changeTvChannelToPrevious() {
+        smartTvDevice.previousChannel()
     }
 
     fun turnOnLight() {
@@ -110,6 +137,18 @@ class SmartHome2(val smartTvDevice: SmartTvDevice2, val smartLightDevice: SmartL
 
     fun increaseLightBrightness() {
         smartLightDevice.increaseBrightness()
+    }
+
+    fun decreaseLightBrightness() {
+        smartLightDevice.decreaseBrightness()
+    }
+
+    fun printSmartTvInfo() {
+        smartTvDevice.printDeviceInfo()
+    }
+
+    fun printSmartLightInfo () {
+        smartLightDevice.printDeviceInfo()
     }
 
     fun turnOffAllDevices() {
@@ -153,7 +192,18 @@ fun main() {
     smartHome.increaseLightBrightness()
     println()
 
+    smartHome.decreaseTvVolume()
+    smartHome.changeTvChannelToPrevious()
+    smartHome.decreaseLightBrightness()
+    println()
+
     smartHome.turnOffAllDevices()
     println("Total number of devices currently turned on: ${smartHome.deviceTurnOnCount}.")
+    println()
+
+    smartHome.printSmartTvInfo()
+    smartHome.printSmartLightInfo()
+    println()
+
 }
 
