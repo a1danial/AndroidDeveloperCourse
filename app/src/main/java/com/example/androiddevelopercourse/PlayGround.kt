@@ -25,7 +25,9 @@ class Registration( email: String, pwd: String, age: Int , gender: Char) {
         }
 }
 
+
 fun main(args: Array<String>) {
+
 
     val geek = Registration("PRAVEENRUHIL1993@GMAIL.COM","Geeks@123",25,'M')
 
