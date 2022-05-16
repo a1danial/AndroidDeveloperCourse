@@ -50,7 +50,10 @@ fun main() {
     }
     val treatFunctionV7 = trickOrTreatV3(false, coins2)
     val trickFunctionV7 = trickOrTreatV3(true, null)
-    treatFunctionV7()
+    // repeat() function is a concise way to express a for loop with functions
+    repeat(4) {
+        treatFunctionV7()
+    }
     trickFunctionV7()
     println()
 
@@ -62,6 +65,7 @@ fun main() {
     // Use trailing lambda syntax
     val treatFunctionV9 = trickOrTreatV3(false) { "$it quarters" }
     treatFunctionV9()
+
 }
 
 // Version 1
