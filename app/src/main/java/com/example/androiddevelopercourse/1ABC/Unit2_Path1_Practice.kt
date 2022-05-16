@@ -32,6 +32,13 @@ fun main() {
 //    printFinalTemperature(27.0, "Celsius", "Fahrenheit", CtoF) // Comment
 //    printFinalTemperature(350.0, "Kelvin", "Celsius", KtoC) // Comment
 //    printFinalTemperature(10.0, "Fahrenheit", "Kelvin", FtoK) // Comment
+
+    // Practice 6
+    val amanda = Person("Amanda", 33, "play tennis", null)
+    val atiqah = Person("Atiqah", 28, "climb", amanda)
+
+//    amanda.showProfile() // Comment
+//    atiqah.showProfile() // Comment
 }
 
 // Practice 2 : Mobile notification
@@ -80,5 +87,20 @@ class Song(val title: String, val artist: String, val year: Int, val playCount: 
     }
     fun SongDetails() {
         println("$title, performed by $artist, was released in $year.")
+    }
+}
+
+// Practice 6 : Internet Profile
+class Person(val name: String, val age: Int, val hobby: String?, val referrer: Person?) {
+    fun showProfile() {
+        println("Name: $name")
+        println("Age: $age")
+        val textHobby = ""
+        if (referrer != null) {
+            println("Likes to $hobby. Has a referrer named ${referrer.name}, who likes to ${referrer.hobby}")
+        } else {
+            println("Likes to $hobby. Doesn't have a referrer.")
+        }
+        println()
     }
 }
