@@ -39,6 +39,12 @@ fun main() {
 
 //    amanda.showProfile() // Comment
 //    atiqah.showProfile() // Comment
+
+    // Practice 8
+    val winningBid = Bid(5000, "Private Collector")
+
+//    println("Item A is sold at ${auctionPrice(winningBid, 2000)}.") // Comment
+//    println("Item B is sold at ${auctionPrice(null, 3000)}.") // Comment
 }
 
 // Practice 2 : Mobile notification
@@ -137,3 +143,15 @@ class FoldablePhone(deviceIsScreenLightOn: Boolean, var deviceFolded: Boolean = 
         deviceFolded = false
     }
 }
+
+// Practice 8 : Special auction
+class Bid(val amount: Int, val bidder: String)
+
+fun auctionPrice(bid: Bid?, minimumPrice: Int): Int {
+    if (bid != null) {
+        return bid.amount
+    } else {
+        return minimumPrice
+    }
+}
+
