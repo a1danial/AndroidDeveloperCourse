@@ -90,7 +90,7 @@ class Song(val title: String, val artist: String, val year: Int, val playCount: 
     }
 }
 
-// Practice 6 : Internet Profile
+// Practice 6 : Internet profile
 class Person(val name: String, val age: Int, val hobby: String?, val referrer: Person?) {
     fun showProfile() {
         println("Name: $name")
@@ -102,5 +102,38 @@ class Person(val name: String, val age: Int, val hobby: String?, val referrer: P
             println("Likes to $hobby. Doesn't have a referrer.")
         }
         println()
+    }
+}
+
+// Practice 7 : Foldable phones
+open class Phone(var isScreenLightOn: Boolean = false) {
+    open fun switchOn() {
+        isScreenLightOn = true
+    }
+
+    fun switchOff() {
+        isScreenLightOn = false
+    }
+
+    fun checkPhoneScreenLight() {
+        val phoneScreenLight = if(isScreenLightOn) "on" else "off"
+        println("The phone screen's light is $phoneScreenLight.")
+    }
+}
+
+class FoldablePhone(deviceIsScreenLightOn: Boolean, var deviceFolded: Boolean = true) :
+        Phone(isScreenLightOn = deviceIsScreenLightOn) {
+    override fun switchOn() {
+        if (!deviceFolded) { // If device is NOT folded
+            super.switchOn()
+        }
+    }
+
+    fun foldPhone() {
+        deviceFolded = true
+    }
+
+    fun unfoldPhone() {
+        deviceFolded = false
     }
 }
