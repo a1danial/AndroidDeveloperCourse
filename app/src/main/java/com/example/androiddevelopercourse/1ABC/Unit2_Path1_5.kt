@@ -43,6 +43,25 @@ fun main() {
     val trickFunctionV6 = trickOrTreatV3(true, null)
     treatFunctionV6()
     trickFunctionV6()
+    println()
+
+    val coins2: (Int) -> String = {
+        "$it quarters"
+    }
+    val treatFunctionV7 = trickOrTreatV3(false, coins2)
+    val trickFunctionV7 = trickOrTreatV3(true, null)
+    treatFunctionV7()
+    trickFunctionV7()
+    println()
+
+    // Pass a lambda expression directly into a function
+    val treatFunctionV8 = trickOrTreatV3(false, { "$it quarters" })
+    treatFunctionV8()
+    println()
+
+    // Use trailing lambda syntax
+    val treatFunctionV9 = trickOrTreatV3(false) { "$it quarters" }
+    treatFunctionV9()
 }
 
 // Version 1
