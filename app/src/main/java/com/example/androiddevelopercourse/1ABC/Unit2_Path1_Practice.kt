@@ -68,3 +68,17 @@ fun printFinalTemperature(
     val finalMeasurement = String.format("%.2f", conversionFormula(initialMeasurement)) // two decimal places
     println("$initialMeasurement degrees $initialUnit is $finalMeasurement degrees $finalUnit.")
 }
+
+// Practice 5 : Song catalog
+class Song(val title: String, val artist: String, val year: Int, val playCount: Int) {
+    fun SongPopularity() {
+        if (playCount < 1000 ) {
+            println("Song is unpopular")
+        } else {
+            println("Song is popular")
+        }
+    }
+    fun SongDetails() {
+        println("$title, performed by $artist, was released in $year.")
+    }
+}
