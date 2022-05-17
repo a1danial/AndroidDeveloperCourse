@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
         setContent {
 //            DiceRollerTheme {
             AndroidDeveloperCourseTheme {
-                DiceRollerApp()
+                DiceRollerAppDebug()
             }
         }
     }
@@ -56,15 +56,15 @@ class MainActivity : ComponentActivity() {
 
 @Preview
 @Composable
-fun DiceRollerApp() {
-    DiceWithButtonAndImage(modifier = Modifier
+fun DiceRollerAppDebug() {
+    DiceWithButtonAndImageDebug(modifier = Modifier
         .fillMaxSize()
         .wrapContentSize(Alignment.Center)
     )
 }
 
 @Composable
-fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
+fun DiceWithButtonAndImageDebug(modifier: Modifier = Modifier) {
     var result by remember { mutableStateOf( 1) }
     val imageResource = when(result) {
         1 -> R.drawable.dice_1

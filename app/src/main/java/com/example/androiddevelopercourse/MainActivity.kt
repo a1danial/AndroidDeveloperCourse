@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevelopercourse.ui.theme.AndroidDeveloperCourseTheme
+import com.example.diceroller.DiceRollerAppDebug
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,14 +19,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidDeveloperCourseTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colors.background
+//                ) {
+//                    Greeting("Android")
+//                }
 
 //                DiceRollerApp() // Unit 2; Pathway 2; Page 7
+                DiceRollerAppDebug() // Unit 2; Pathway 2; Class 3; Page 3
             }
         }
     }
