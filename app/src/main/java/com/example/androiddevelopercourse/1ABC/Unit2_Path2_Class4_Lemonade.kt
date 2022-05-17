@@ -27,8 +27,7 @@ fun LemonadeCycle(modifier: Modifier = Modifier) {
 
     var step by remember { mutableStateOf(1) }
 
-    var squeeze by remember { mutableStateOf(1) }
-    var squeezeLim by remember { mutableStateOf( (2..4).random()) }
+    var squeezeLim by remember { mutableStateOf(1) }
 
     val stepText: Int = when(step) {
         1 -> R.string.step1_text
@@ -58,19 +57,38 @@ fun LemonadeCycle(modifier: Modifier = Modifier) {
             modifier = Modifier.padding(bottom = 16.dp)
         )
         Button(onClick = {
-//            if(step < 4) {
+            // Original attempt
+//            if(step == 2 && squeeze < squeezeLim) {
+//                squeeze++
+//            } else if (step < 4) {
 //                step++
 //            } else {
 //                step = 1
-            if(step == 2 && squeeze < squeezeLim) {
-                squeeze++
-            } else if (step < 4) {
-                step++
-            } else {
-                step = 1
-                squeeze = 1
-                squeezeLim = (2..4).random()
-            } },
+//                squeeze = 1
+//                squeezeLim = (2..4).random()
+//            }
+
+            // With support from solution
+            when (step) {
+                1 -> {
+                    step++
+                    squeezeLim = (2..4).random()
+                }
+                2 -> {
+                    if (squeezeLim == 0) {
+                        step++
+                    } else {
+                        squeezeLim--
+                    }
+                }
+                3 -> {
+                    step++
+                }
+                4 -> {
+                    step = 1
+                }
+            }
+            },
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = colorResource(id = R.color.white_background)),
             border = BorderStroke(2.dp,colorResource(id = R.color.button_outline)),
