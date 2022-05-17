@@ -18,14 +18,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidDeveloperCourseTheme {
                 // A surface container using the 'background' color from the theme
-//                Surface(
-//                    modifier = Modifier.fillMaxSize(),
-//                    color = MaterialTheme.colors.background
-//                ) {
-//                    Greeting("Android")
-//                }
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    Greeting("Android")
+                }
 
-                DiceRollerApp()
+//                DiceRollerApp() // Unit 2; Pathway 2; Page 7
             }
         }
     }
