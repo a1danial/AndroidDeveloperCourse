@@ -27,7 +27,9 @@ class MainActivity : ComponentActivity() {
 //                }
 
 //                DiceRollerApp() // Unit 2; Pathway 2; Page 7
-                DiceRollerAppDebug() // Unit 2; Pathway 2; Class 3; Page 3
+//                DiceRollerAppDebug() // Unit 2; Pathway 2; Class 3; Page 3
+
+                LemonadeApp() // Unit 2; Pathway 2; Class 4
             }
         }
     }

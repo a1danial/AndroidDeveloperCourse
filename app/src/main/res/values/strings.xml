@@ -3,4 +3,15 @@
 
     <string name="roll">Roll</string>
 
+    <string name="step1_text">Tap the lemon tree to select a lemon</string>
+    <string name="step2_text">Keep tapping the lemon to squeeze it</string>
+    <string name="step3_text">Tap the lemonade to drink it</string>
+    <string name="step4_text">Tap the empty glass to start again</string>
+
+    <string name="step1_contentdescription">Lemon tree</string>
+    <string name="step2_contentdescription">Lemon</string>
+    <string name="step3_contentdescription">Glass of lemonade</string>
+    <string name="step4_contentdescription">Empty glass</string>
+
+
 </resources>
