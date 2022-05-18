@@ -93,11 +93,11 @@ private fun calculateTip(
     return NumberFormat.getCurrencyInstance().format(tip)
 }
 
-//@Preview (showSystemUi = true)
-//@Composable
-//fun TipTimeDefaultPreview() {
-//    AndroidDeveloperCourseTheme {
-//        TipTimeScreen()
-//    }
-//}
+@Preview (showSystemUi = true)
+@Composable
+fun TipTimeDefaultPreview() {
+    AndroidDeveloperCourseTheme {
+        TipTimeScreen()
+    }
+}
 
