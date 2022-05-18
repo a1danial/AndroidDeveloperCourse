@@ -52,11 +52,11 @@ fun TipTimeScreen() {
 
 @Composable
 fun EditNumberField() {
-    var amountInput: MutableState<String> = mutableStateOf("0")
+    var amountInput by remember { mutableStateOf("") }
 
     TextField(
-        value = amountInput.value,
-        onValueChange = { amountInput.value = it },
+        value = amountInput,
+        onValueChange = { amountInput = it },
         modifier = Modifier.fillMaxWidth()
     )
 }
