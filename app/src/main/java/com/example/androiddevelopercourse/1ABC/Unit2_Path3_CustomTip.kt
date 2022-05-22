@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.sp
 
@@ -59,11 +60,19 @@ fun CustomTipScreen() {
         Spacer(Modifier.height(16.dp))
         EditNumberFieldCustomTip(
             label = R.string.bill_amount,
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Number,
+                imeAction = ImeAction.Next
+            ),
             value = amountInput,
             onValueChange = { amountInput = it }
         )
         EditNumberFieldCustomTip(
             label = R.string.how_was_the_service,
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Number,
+                imeAction = ImeAction.Done
+            ),
             value = tipInput,
             onValueChange = { tipInput = it }
         )
@@ -80,6 +89,7 @@ fun CustomTipScreen() {
 @Composable
 fun EditNumberFieldCustomTip(
     @StringRes label: Int,
+    keyboardOptions: KeyboardOptions,
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier
@@ -90,7 +100,12 @@ fun EditNumberFieldCustomTip(
         label = { Text(text = stringResource(label)) },
         modifier = Modifier.fillMaxWidth(),
         singleLine = true, // single horizontally scrolling text field
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number) // set keyboard type to number keyboard
+        keyboardOptions = keyboardOptions
+//        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number) // set keyboard type to number keyboard
+//        keyboardOptions = KeyboardOptions.Default.copy(
+//            keyboardType = KeyboardType.Number,
+//            imeAction = ImeAction.Next
+//        )
     )
 }
 
