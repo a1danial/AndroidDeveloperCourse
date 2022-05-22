@@ -3,16 +3,12 @@ package com.example.androiddevelopercourse
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -78,7 +74,7 @@ fun EditNumberField(
     TextField(
         value = value,
         onValueChange = onValueChange,
-        label = { Text(text = stringResource(id = R.string.cost_of_service)) },
+        label = { Text(text = stringResource(id = R.string.bill_amount)) },
         modifier = Modifier.fillMaxWidth(),
         singleLine = true, // single horizontally scrolling text field
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number) // set keyboard type to number keyboard
