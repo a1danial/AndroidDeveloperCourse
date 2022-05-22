@@ -31,7 +31,8 @@ class MainActivity : ComponentActivity() {
 
 //                LemonadeApp() // Unit 2; Pathway 2; Class 4
 
-                TipTimeScreen() // Unit 2; Pathway 3; Class 3
+//                TipTimeScreen() // Unit 2; Pathway 3; Class 3
+                CustomTipScreen() // Unit 2; Pathway 3; Class 3
             }
         }
     }
