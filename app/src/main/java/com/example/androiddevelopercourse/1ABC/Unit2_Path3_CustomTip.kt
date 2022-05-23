@@ -69,7 +69,7 @@ fun CustomTipScreen() {
         Spacer(Modifier.height(16.dp))
         EditNumberFieldCustomTip(
             label = R.string.bill_amount,
-            keyboardOptions = KeyboardOptions(
+            keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Number,
                 imeAction = ImeAction.Next
             ),
@@ -81,7 +81,7 @@ fun CustomTipScreen() {
         )
         EditNumberFieldCustomTip(
             label = R.string.how_was_the_service,
-            keyboardOptions = KeyboardOptions(
+            keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Number,
                 imeAction = ImeAction.Done
             ),
@@ -115,9 +115,10 @@ fun RoundTheTipRow(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(text = stringResource(id = R.string.round_up_tip))
-        Switch(modifier = Modifier
-            .fillMaxWidth()
-            .wrapContentWidth(Alignment.End),
+        Switch(
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentWidth(Alignment.End),
             checked = roundUp,
             onCheckedChange = onRoundUpChanged,
             colors = SwitchDefaults.colors(
