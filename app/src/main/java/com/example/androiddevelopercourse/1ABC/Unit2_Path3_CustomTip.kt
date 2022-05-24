@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.StringRes
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -52,7 +53,7 @@ fun CustomTipScreen() {
     val amount = amountInput.toDoubleOrNull() ?: 0.0
     val tipPercent = tipInput.toDoubleOrNull() ?: 0.0
 
-    val tip = calculateTip(amount, tipPercent, roundUp)
+    val tip = calculateCustomTip(amount, tipPercent, roundUp)
 
     // Variable to move focus to, and clear the focus from
     val focusManager = LocalFocusManager.current
@@ -153,15 +154,15 @@ fun EditNumberFieldCustomTip(
     )
 }
 
-private fun calculateTip(
+@VisibleForTesting
+internal fun calculateCustomTip(
     amount: Double,
     tipPercent: Double = 15.0,
     roundUp: Boolean
 ): String {
     var tip = amount * (tipPercent / 100)
-    if (roundUp) {
+    if (roundUp)
         tip = kotlin.math.ceil(tip)
-    }
     return NumberFormat.getCurrencyInstance().format(tip)
 }
 
