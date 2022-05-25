@@ -1,5 +1,6 @@
 package com.example.androiddevelopercourse
 
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performTextInput
@@ -10,7 +11,10 @@ import org.junit.Test
 class Unit2_Path3_TipUITests {
 
     @get:Rule
-    val composeTestRule = createComposeRule()
+//    val composeTestRule = createComposeRule()
+    /* Use createAndroidComposeRule<YourActivity>() if you need access to
+    an activity */
+    val composeTestRule = createAndroidComposeRule<MainActivity>() // Still unsure why this works but not the above
 
     @Test
     fun calculate_20_percent_tip() {
@@ -19,9 +23,10 @@ class Unit2_Path3_TipUITests {
                 CustomTipScreen()
             }
         }
-        composeTestRule.onNodeWithText("Cost of Service").performTextInput("10")
+        composeTestRule.onNodeWithText("Bill Amount").performTextInput("10")
         composeTestRule.onNodeWithText("Tip (%)").performTextInput("20")
-        composeTestRule.onNodeWithText("Tip Amount: $2.00").assertExists()
+        composeTestRule.onNodeWithText("Tip amount: $2.00").assertExists() // As per course
+
     }
 }
 
