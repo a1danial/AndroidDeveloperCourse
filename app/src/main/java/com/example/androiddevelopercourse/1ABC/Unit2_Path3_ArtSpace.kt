@@ -6,7 +6,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,50 +33,19 @@ fun ArtSpaceScreen() {
             .fillMaxSize()
             .background(Color.White),
     ) {
-        Image(painter = painterResource(id = R.drawable.apollo_and_daphne__bernini___cropped_),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-//                modifier = Modifier.padding(top = 15.dp).width(300.dp)
-            modifier = Modifier
-                .padding(25.dp)
-                .height(400.dp)
-                .width(200.dp)
-                .border(5.dp, Color.Gray)
-        )
+        var pictureImage by remember { mutableStateOf(R.drawable.apollo_and_daphne__bernini___cropped_) }
+
+        // Picture
+        PictureGallery(pictureImage)
+
         Spacer(modifier = Modifier.size(15.dp))
-        Column(
-            modifier = Modifier
-                .border(2.dp, Color.Gray)
-                .width(275.dp)
-                .padding(start = 20.dp, end = 20.dp, top = 10.dp, bottom = 10.dp),
-            horizontalAlignment = Alignment.Start,
-            verticalArrangement = Arrangement.spacedBy(5.dp, Alignment.CenterVertically)
-        ) {
-            Text(text = "Apollo and Daphne",
-                textAlign = TextAlign.Start,
-                fontSize = 30.sp
-            )
-            Text(
-                buildAnnotatedString {
-                    withStyle(style = SpanStyle(
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    ) {
-                        append("Gian Lorenzo Bernini")
-                    }
-                    withStyle(style = SpanStyle(
-                        fontSize = 15.sp,
-                        color = Color.LightGray,
-                        fontStyle = FontStyle.Italic
-                    )
-                    ) {
-                        append("  (1625)")
-                    }
-                },
-            )
-        }
+
+        // Description
+        PictureDescription()
+
         Spacer(modifier = Modifier.size(30.dp))
+
+        // Navigation Button
         Row(verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally)
         ) {
@@ -95,6 +64,55 @@ fun ArtSpaceScreen() {
         }
         Spacer(modifier = Modifier.size(30.dp))
     }
+}
+
+@Composable
+fun PictureDescription() {
+    Column(
+        modifier = Modifier
+            .border(2.dp, Color.Gray)
+            .width(275.dp)
+            .padding(start = 20.dp, end = 20.dp, top = 10.dp, bottom = 10.dp),
+        horizontalAlignment = Alignment.Start,
+        verticalArrangement = Arrangement.spacedBy(5.dp, Alignment.CenterVertically)
+    ) {
+        Text(text = "Apollo and Daphne",
+            textAlign = TextAlign.Start,
+            fontSize = 30.sp
+        )
+        Text(
+            buildAnnotatedString {
+                withStyle(style = SpanStyle(
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                ) {
+                    append("Gian Lorenzo Bernini")
+                }
+                withStyle(style = SpanStyle(
+                    fontSize = 15.sp,
+                    color = Color.LightGray,
+                    fontStyle = FontStyle.Italic
+                )
+                ) {
+                    append("  (1625)")
+                }
+            },
+        )
+    }
+}
+
+@Composable
+fun PictureGallery(pictureImage: Int) {
+    Image(painter = painterResource(pictureImage),
+        contentDescription = null,
+        contentScale = ContentScale.Crop,
+        modifier = Modifier
+            .padding(25.dp)
+            .height(400.dp)
+            .width(200.dp)
+            .border(5.dp, Color.Gray)
+    )
 }
 
 @Preview(showSystemUi = true)
