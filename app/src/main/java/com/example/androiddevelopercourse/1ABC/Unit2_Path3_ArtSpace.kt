@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
@@ -34,6 +33,49 @@ fun ArtSpaceScreen() {
             .background(Color.White),
     ) {
         var pictureImage by remember { mutableStateOf(R.drawable.apollo_and_daphne__bernini___cropped_) }
+        var pictureDescriptionTitle by remember { mutableStateOf("Apollo and Daphne") }
+        var pictureDescriptionCreator by remember { mutableStateOf("Gian Lorenzo Bernini") }
+        var pictureDescriptionYear by remember { mutableStateOf("1625") }
+        var step by remember { mutableStateOf(1) }
+
+        when (step) {
+            1 -> {
+                pictureImage = R.drawable.apollo_and_daphne__bernini___cropped_
+                pictureDescriptionTitle = "Apollo and Daphne"
+                pictureDescriptionCreator = "Gian Lorenzo Bernini"
+                pictureDescriptionYear = "1625"
+            }
+            2 -> {
+                pictureImage = R.drawable._20px_ecstasy_of_saint_teresa_september_2015_2a
+                pictureDescriptionTitle = "Ecstasy of Saint Teresa"
+                pictureDescriptionCreator = "Gian Lorenzo Bernini"
+                pictureDescriptionYear = "1652"
+            }
+            3 -> {
+                pictureImage = R.drawable._20px_the_rape_of_proserpina__rome_
+                pictureDescriptionTitle = "The Rape of Proserpina"
+                pictureDescriptionCreator = "Gian Lorenzo Bernini"
+                pictureDescriptionYear = "1622"
+            }
+            4 -> {
+                pictureImage = R.drawable._75px_michelangelo_s_pieta_5450_cut_out_black
+                pictureDescriptionTitle = "Pietà"
+                pictureDescriptionCreator = "Michelangelo Buonarroti"
+                pictureDescriptionYear = "1499"
+            }
+            5 -> {
+                pictureImage = R.drawable.tombstone_of_pope_alexander_vii_st__peter_s_basilica_vatican
+                pictureDescriptionTitle = "Tomb of Pope Alexander VII"
+                pictureDescriptionCreator = "Gian Lorenzo Bernini"
+                pictureDescriptionYear = "1678"
+            }
+            6 -> {
+                pictureImage = R.drawable.monumenttopopepiusviii
+                pictureDescriptionTitle = "Monument to Pius VIII"
+                pictureDescriptionCreator = "Pietro Tenerani"
+                pictureDescriptionYear = "1866"
+            }
+        }
 
         // Picture
         PictureGallery(pictureImage)
@@ -41,7 +83,7 @@ fun ArtSpaceScreen() {
         Spacer(modifier = Modifier.size(15.dp))
 
         // Description
-        PictureDescription()
+        PictureDescription(pictureDescriptionTitle, pictureDescriptionCreator, pictureDescriptionYear)
 
         Spacer(modifier = Modifier.size(30.dp))
 
@@ -49,13 +91,17 @@ fun ArtSpaceScreen() {
         Row(verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally)
         ) {
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = {
+                if (step == 1) step = 5 else step--
+            }) {
                 Text("Previous",
                     textAlign = TextAlign.Center,
                     modifier = Modifier.width(70.dp)
                 )
             }
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = {
+                if (step == 6) step = 1 else step++
+            }) {
                 Text("Next",
                     textAlign = TextAlign.Center,
                     modifier = Modifier.width(70.dp)
@@ -67,7 +113,25 @@ fun ArtSpaceScreen() {
 }
 
 @Composable
-fun PictureDescription() {
+fun PictureGallery(pictureImage: Int) {
+    Image(painter = painterResource(pictureImage),
+        contentDescription = null,
+//        contentScale = ContentScale.Crop,
+        contentScale = ContentScale.Fit, // Enlarge picture to fit into screen
+        modifier = Modifier
+            .padding(25.dp)
+            .height(400.dp)
+            .width(200.dp)
+            .border(5.dp, Color.Gray) // Ensure border runs around picture and not boundary
+    )
+}
+
+@Composable
+fun PictureDescription(
+    pictureDescriptionTitle: String,
+    pictureDescriptionCreator: String,
+    pictureDescriptionYear: String
+) {
     Column(
         modifier = Modifier
             .border(2.dp, Color.Gray)
@@ -76,7 +140,7 @@ fun PictureDescription() {
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(5.dp, Alignment.CenterVertically)
     ) {
-        Text(text = "Apollo and Daphne",
+        Text(text = pictureDescriptionTitle,
             textAlign = TextAlign.Start,
             fontSize = 30.sp
         )
@@ -87,7 +151,7 @@ fun PictureDescription() {
                     fontWeight = FontWeight.Bold
                 )
                 ) {
-                    append("Gian Lorenzo Bernini")
+                    append(pictureDescriptionCreator)
                 }
                 withStyle(style = SpanStyle(
                     fontSize = 15.sp,
@@ -95,24 +159,11 @@ fun PictureDescription() {
                     fontStyle = FontStyle.Italic
                 )
                 ) {
-                    append("  (1625)")
+                    append("  ($pictureDescriptionYear)")
                 }
             },
         )
     }
-}
-
-@Composable
-fun PictureGallery(pictureImage: Int) {
-    Image(painter = painterResource(pictureImage),
-        contentDescription = null,
-        contentScale = ContentScale.Crop,
-        modifier = Modifier
-            .padding(25.dp)
-            .height(400.dp)
-            .width(200.dp)
-            .border(5.dp, Color.Gray)
-    )
 }
 
 @Preview(showSystemUi = true)
