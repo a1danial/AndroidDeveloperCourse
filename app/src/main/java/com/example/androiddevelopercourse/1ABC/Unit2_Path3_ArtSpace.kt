@@ -78,7 +78,7 @@ fun ArtSpaceScreen() {
         }
 
         // Picture
-        PictureGallery(pictureImage)
+        PictureGallery(pictureImage, Modifier.weight(1f).width(315.dp))
 
         Spacer(modifier = Modifier.size(15.dp))
 
@@ -113,17 +113,23 @@ fun ArtSpaceScreen() {
 }
 
 @Composable
-fun PictureGallery(pictureImage: Int) {
-    Image(painter = painterResource(pictureImage),
-        contentDescription = null,
+fun PictureGallery(pictureImage: Int,
+                   modifier: Modifier
+) {
+    Row(modifier,
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Image(painter = painterResource(pictureImage),
+            contentDescription = null,
 //        contentScale = ContentScale.Crop,
-        contentScale = ContentScale.Fit, // Enlarge picture to fit into screen
-        modifier = Modifier
-            .padding(25.dp)
-            .height(400.dp)
-            .width(200.dp)
-            .border(5.dp, Color.Gray) // Ensure border runs around picture and not boundary
-    )
+            contentScale = ContentScale.Fit, // Enlarge picture to fit into screen
+            modifier = Modifier
+                .padding(25.dp)
+//                .border(5.dp, Color.Gray) // Ensure border runs around picture and not boundary
+                .fillMaxSize()
+        )
+    }
 }
 
 @Composable
