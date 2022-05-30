@@ -78,7 +78,14 @@ fun ArtSpaceScreen() {
         }
 
         // Picture
-        PictureGallery(pictureImage, Modifier.weight(1f).width(315.dp))
+        PictureGallery(pictureImage, Modifier.weight(1f)
+//            .width(315.dp)
+            .fillMaxWidth()
+//            .width(IntrinsicSize.Min)
+        )
+            // To ensure that your layout is responsive to different screen sizes, use wrap_content,
+            // match_parent, or 0dp (match constraint) for the width and height of most view
+            // components instead of hard-coded values
 
         Spacer(modifier = Modifier.size(15.dp))
 
@@ -92,7 +99,7 @@ fun ArtSpaceScreen() {
             horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally)
         ) {
             Button(onClick = {
-                if (step == 1) step = 5 else step--
+                if (step == 1) step = 6 else step--
             }) {
                 Text("Previous",
                     textAlign = TextAlign.Center,
@@ -118,7 +125,7 @@ fun PictureGallery(pictureImage: Int,
 ) {
     Row(modifier,
         horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(painter = painterResource(pictureImage),
             contentDescription = null,
