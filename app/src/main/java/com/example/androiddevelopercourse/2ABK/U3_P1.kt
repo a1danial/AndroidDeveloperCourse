@@ -6,6 +6,7 @@ fun main() {
 }
 
 fun ABK_U3_P1_M2() {
+    /* STEP 2: Learn about collections */
     /* Create a list and sets */
     val numbers = listOf(0, 3, 8, 4, 0, 5, 5, 8, 9, 2)
     println("list:   ${numbers}")
@@ -26,4 +27,16 @@ fun ABK_U3_P1_M2() {
     peopleAges["Joe"] = 51
     peopleAges["Fred"] = 31 // No new key is added but value is updated
     println(peopleAges)
+
+    /* STEP 3: Working with collections */
+    // forEach
+    peopleAges.forEach { print("${it.key} is ${it.value}, ") }
+
+    // map
+    println(peopleAges.map { "${it.key} is ${it.value}" }.joinToString(", ") )
+
+    // filter
+    val filteredNames = peopleAges.filter { it.key.length < 4 }
+    println(filteredNames)
+
 }
