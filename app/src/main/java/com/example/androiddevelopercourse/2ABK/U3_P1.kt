@@ -35,9 +35,34 @@ fun ABK_U3_P1_M2() {
     val triple: (Int) -> Int = { it * 3 }
     println(triple(5))
 
+    /* STEP 4: Learn about lambdas and higher-order functions */
     // Higher-order functions
     val peopleNames = listOf("Fred", "Ann", "Barbara", "Joe")
     println(peopleNames.sorted())
     println(peopleNames.sortedWith { str1: String, str2: String -> str1.length - str2.length })
+
+    /* STEP 5: Make word lists */
+    val words = listOf(
+        "about",
+        "acute",
+        "awesome",
+        "balloon",
+        "best",
+        "brief",
+        "class",
+        "coffee",
+        "creative"
+    )
+    val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }
+        .shuffled()
+        .take(2)
+        .sorted()
+//    val filteredWords = words.filter { it.startsWith("c", ignoreCase = true) }
+//        .shuffled()
+//        .take(1)
+    println(filteredWords)
+
+    /* STEP 6: Summary */
+    /* STEP 7: Learn more */
 
 }
