@@ -29,14 +29,15 @@ fun ABK_U3_P1_M2() {
     println(peopleAges)
 
     /* STEP 3: Working with collections */
-    // forEach
-    peopleAges.forEach { print("${it.key} is ${it.value}, ") }
+    // Function types
+//    val triple: (Int) -> Int = { a: Int -> a * 3 }
+    // Concise coding by utilising a shorthand for lambda with single parameters
+    val triple: (Int) -> Int = { it * 3 }
+    println(triple(5))
 
-    // map
-    println(peopleAges.map { "${it.key} is ${it.value}" }.joinToString(", ") )
-
-    // filter
-    val filteredNames = peopleAges.filter { it.key.length < 4 }
-    println(filteredNames)
+    // Higher-order functions
+    val peopleNames = listOf("Fred", "Ann", "Barbara", "Joe")
+    println(peopleNames.sorted())
+    println(peopleNames.sortedWith { str1: String, str2: String -> str1.length - str2.length })
 
 }
