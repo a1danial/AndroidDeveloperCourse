@@ -1,5 +1,6 @@
 package com.example.androiddevelopercourse
 
+// Pathway complete
 fun main() {
     /* Module 3: Write your first program in Kotlin */
     println("Happy Birthday!")
