@@ -2,7 +2,7 @@ package com.example.androiddevelopercourse
 
 
 fun main() {
-    ABK_U3_P1_M2() // Module 2: Navigate between screens
+//    ABK_U3_P1_M2() // Module 2: Navigate between screens
 }
 
 fun ABK_U3_P1_M2() {
@@ -61,8 +61,5 @@ fun ABK_U3_P1_M2() {
 //        .shuffled()
 //        .take(1)
     println(filteredWords)
-
-    /* STEP 6: Summary */
-    /* STEP 7: Learn more */
 
 }
