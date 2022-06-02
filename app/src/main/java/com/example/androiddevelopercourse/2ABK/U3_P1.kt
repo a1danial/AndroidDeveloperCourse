@@ -3,6 +3,16 @@ package com.example.androiddevelopercourse
 
 fun main() {
 //    ABK_U3_P1_M2() // Module 2: Navigate between screens
+    ABK_U3_P1_M3() // Module 3: Activities and Intent
+//    ABK_U3_P1_M4() // Module 4: Stages of the activity lifecycle
+}
+
+fun ABK_U3_P1_M4() {
+    TODO("Not yet implemented")
+}
+
+fun ABK_U3_P1_M3() {
+    TODO("Not yet implemented")
 }
 
 fun ABK_U3_P1_M2() {
@@ -63,3 +73,4 @@ fun ABK_U3_P1_M2() {
     println(filteredWords)
 
 }
+
