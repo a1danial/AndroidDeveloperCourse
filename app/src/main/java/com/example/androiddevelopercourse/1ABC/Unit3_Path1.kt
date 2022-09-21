@@ -23,6 +23,27 @@ class Quiz {
         var total: Int = 10
         var answered: Int = 3
     }
+
+    fun printQuiz() {
+        question1.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+        question2.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+        question3.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+    }
 }
 
 val Quiz.StudentProgress.progressText: String
@@ -38,6 +59,15 @@ fun Quiz.StudentProgress.printProgressBar() {
 fun main(args: Array<String>) {
 //    println(question1.toString())
 //    println(Quiz.progressText)
-    println(Quiz.printProgressBar())
+//    println(Quiz.printProgressBar())
+
+    Quiz.printProgressBar()
+
+//    val quiz = Quiz()
+//    quiz.printQuiz()
+
+    Quiz().apply {
+        printQuiz()
+    }
 }
 
