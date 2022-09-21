@@ -25,8 +25,19 @@ class Quiz {
     }
 }
 
+val Quiz.StudentProgress.progressText: String
+    get() = "${answered} of ${total} answered"
+
+fun Quiz.StudentProgress.printProgressBar() {
+    repeat(Quiz.answered) { print("▓") }
+    repeat(Quiz.total - Quiz.answered) { print("▒") }
+    println()
+    println(Quiz.progressText)
+}
+
 fun main(args: Array<String>) {
 //    println(question1.toString())
-    println("${Quiz.answered} of ${Quiz.total} answered")
+//    println(Quiz.progressText)
+    println(Quiz.printProgressBar())
 }
 
