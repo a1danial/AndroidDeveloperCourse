@@ -206,13 +206,54 @@ fun main(args: Array<String>) {
 //        println("Menu item: ${it.name}")
 //    }
 
-    // Step 3 - map()
+    // Step 3: map()
     val fullMenu = cookies.map {
         "${it.name} - $${it.price}"
     }
-    println("Full menu:")
-    fullMenu.forEach {
-        println(it)
+//    println("Full menu:")
+//    fullMenu.forEach {
+//        println(it)
+//    }
+
+    // Step 4: filter()
+    val softBakedMenu = cookies.filter {
+        it.softBaked
+    }
+//    println("Soft cookies:")
+//    softBakedMenu.forEach {
+//        println("${it.name} - $${it.price}")
+//    }
+
+    // Step 5: groupBy()
+    val groupedMenu = cookies.groupBy { it.softBaked }
+    val softBakedMenuS5 = groupedMenu[true] ?: listOf()
+    val crunchyMenu = groupedMenu[false] ?: listOf()
+//    groupedMenu.forEach {
+//        println("${it.key} - ${it.value}")
+//    }
+//    println("Soft cookies:")
+//    softBakedMenu.forEach {
+//        println("${it.name} - $${it.price}")
+//    }
+//    println("Crunchy cookies:")
+//    crunchyMenu.forEach {
+//        println("${it.name} - $${it.price}")
+//    }
+
+    // Step 6: fold()
+    val totalPrice = cookies.fold(0.0) {total, cookie ->
+        total + cookie.price
+    }
+//    println("Total price: $${totalPrice}")
+
+    // Step 7: sortedBy()
+    val alphabeticalMenu = cookies.sortedBy {
+//    val alphabeticalMenu = cookies.sortedByDescending { // For descending
+        it.name
+    }
+    println("Alphabetical menu:")
+    alphabeticalMenu.forEach {
+        println(it.name)
     }
 }
 
