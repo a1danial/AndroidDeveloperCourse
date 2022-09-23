@@ -1,5 +1,8 @@
 package com.example.androiddevelopercourse
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+
 class Unit3_Path1 {
 
 }
@@ -108,6 +111,28 @@ val cookies = listOf(
     )
 )
 
+// MODULE 5: Practice: Classes and Collections
+// Task 1
+data class Event(
+    val title: String,
+//    val description: String?, // Task 1
+    val description: String? = null, // Task 1: Correct answer
+//    val daypart: String, // Task 1
+    val daypart: Daypart, // Task 2
+    val duration: Int
+)
+
+// Task 2
+enum class Daypart {
+    MORNING, AFTERNOON, EVENING
+}
+
+// Task 7
+val Event.durationText: String
+//    get() = if (duration < 60) "short" else "long"
+    get() = if (this.duration < 60) "short" else "long" // Correct answer
+
+@RequiresApi(Build.VERSION_CODES.N)
 fun main(args: Array<String>) {
 //    println(question1.toString())
 //    println(Quiz.progressText)
@@ -251,9 +276,55 @@ fun main(args: Array<String>) {
 //    val alphabeticalMenu = cookies.sortedByDescending { // For descending
         it.name
     }
-    println("Alphabetical menu:")
-    alphabeticalMenu.forEach {
-        println(it.name)
+//    println("Alphabetical menu:")
+//    alphabeticalMenu.forEach {
+//        println(it.name)
+//    }
+
+    // MODULE 5: Practice: Classes and Collections
+    // Task 1
+    val event = Event(
+        title = "Study Kotlin",
+        description = "Commit to studying Kotlin at least 15 minutes per day.",
+        daypart = Daypart.EVENING,
+        duration = 15
+    )
+    println(event)
+
+    // Task 3
+    val event1 = Event(title = "Wake up", description = "Time to get up", daypart = Daypart.MORNING, duration = 0)
+    val event2 = Event(title = "Eat breakfast", daypart = Daypart.MORNING, duration = 15)
+    val event3 = Event(title = "Learn about Kotlin", daypart = Daypart.AFTERNOON, duration = 30)
+    val event4 = Event(title = "Practice Compose", daypart = Daypart.AFTERNOON, duration = 60)
+    val event5 = Event(title = "Watch latest DevBytes video", daypart = Daypart.AFTERNOON, duration = 10)
+    val event6 = Event(title = "Check out latest Android Jetpack library", daypart = Daypart.EVENING, duration = 45)
+    val eventList = mutableListOf<Event>(
+//        Event(title = "Wake up", description = "Time to get up", daypart = Daypart.MORNING, duration = 0),
+//        Event(title = "Eat breakfast", daypart = Daypart.MORNING, duration = 15),
+//        Event(title = "Learn about Kotlin", daypart = Daypart.AFTERNOON, duration = 30),
+//        Event(title = "Practice Compose", daypart = Daypart.AFTERNOON, duration = 60),
+//        Event(title = "Watch latest DevBytes video", daypart = Daypart.AFTERNOON, duration = 10),
+//        Event(title = "Check out latest Android Jetpack library", daypart = Daypart.NIGHT, duration = 45)
+        event1, event2, event3, event4, event5, event6 // Correct answer
+    )
+
+    // Task 4
+    val eventShort = eventList.filter { it.duration < 60 }
+    println("You have ${eventShort.size} short events")
+
+    // Task 5
+    val eventDaypart = eventList.groupBy { it.daypart }
+    eventDaypart.forEach { daypart, events -> // Correct answer
+        println("$daypart: ${events.size ?: "0"} events")
     }
+//    println("Morning: ${eventDaypart[Daypart.MORNING]?.size ?: "0"} events")
+//    println("Afternoon: ${eventDaypart[Daypart.AFTERNOON]?.size ?: "0"} events")
+//    println("Evening: ${eventDaypart[Daypart.EVENING]?.size ?: "0"} events")
+
+    // Task 6
+    println("Last event of the day: ${eventList.last().title}")
+
+    // Task 7
+    println("Duration of first event of the day: ${eventList[0].durationText}")
 }
 
