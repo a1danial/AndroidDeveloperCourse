@@ -97,17 +97,32 @@ fun main(args: Array<String>) {
 //    println(solarSystem.indexOf("Earth"))
 //    println(solarSystem.indexOf("Pluto"))
 
-    val solarSystem = mutableListOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
-    solarSystem.add("Pluto")
-    solarSystem.add(3, "Theia")
-    solarSystem[3] = "Future Moon"
-    solarSystem.removeAt(9)
-    solarSystem.remove("Future Moon")
+    // Step 3: Lists
+//    val solarSystem = mutableListOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+//    solarSystem.add("Pluto")
+//    solarSystem.add(3, "Theia")
+//    solarSystem[3] = "Future Moon"
+//    solarSystem.removeAt(9)
+//    solarSystem.remove("Future Moon")
+//
+//    for (planet in solarSystem) {
+//        println(planet)
+//    }
+//    println(solarSystem.contains("Pluto"))
+//    println("Future Moon" in solarSystem)
 
-    for (planet in solarSystem) {
-        println(planet)
-    }
+    // Step 4: Sets
+    val solarSystem = mutableSetOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+    println(solarSystem.size)
+    solarSystem.add("Pluto")
+    println(solarSystem.size)
     println(solarSystem.contains("Pluto"))
-    println("Future Moon" in solarSystem)
+
+    solarSystem.add("Pluto")
+    println(solarSystem.size)
+
+    solarSystem.remove("Pluto")
+    println(solarSystem.size)
+    println(solarSystem.contains("Pluto"))
 }
 
