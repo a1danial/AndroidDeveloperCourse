@@ -202,8 +202,17 @@ fun main(args: Array<String>) {
 
     // MODULE 4
     // Step 2
-    cookies.forEach {
-        println("Menu item: ${it.name}")
+//    cookies.forEach {
+//        println("Menu item: ${it.name}")
+//    }
+
+    // Step 3 - map()
+    val fullMenu = cookies.map {
+        "${it.name} - $${it.price}"
+    }
+    println("Full menu:")
+    fullMenu.forEach {
+        println(it)
     }
 }
 
