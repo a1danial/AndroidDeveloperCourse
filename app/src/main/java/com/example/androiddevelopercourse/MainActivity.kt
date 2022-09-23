@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.androiddevelopercourse.A1ABC.Unit3_Path2.AffirmationApp
 import com.example.androiddevelopercourse.ui.theme.AndroidDeveloperCourseTheme
 import com.example.diceroller.DiceRollerAppDebug
 import com.example.sqlbasics.AppDatabase
@@ -39,10 +40,12 @@ class MainActivity : ComponentActivity() {
 ////                ArtSpaceScreen() // Unit 2; Pathway 3; Class 5
 //            }
 
-            GlobalScope.launch {
-                AppDatabase.getDatabase(applicationContext).californiaParkDao().getAll()
+//            GlobalScope.launch {
+//                AppDatabase.getDatabase(applicationContext).californiaParkDao().getAll()
+//
+//            }
 
-            }
+            AffirmationApp() // ABC; Unit 3; Pathway 2; Module 2
         }
     }
 }
