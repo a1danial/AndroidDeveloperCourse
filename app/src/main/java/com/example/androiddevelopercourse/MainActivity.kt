@@ -12,7 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevelopercourse.A1ABC.Unit3_Path2.AffirmationApp
 import com.example.androiddevelopercourse.A1ABC.Unit3_Path2.GridApp
+import com.example.androiddevelopercourse.A1ABC.Unit3_Path3.WoofApp
 import com.example.androiddevelopercourse.ui.theme.AndroidDeveloperCourseTheme
+import com.example.androiddevelopercourse.ui.theme.WoofTheme
 import com.example.diceroller.DiceRollerAppDebug
 import com.example.sqlbasics.AppDatabase
 import kotlinx.coroutines.GlobalScope
@@ -47,7 +49,10 @@ class MainActivity : ComponentActivity() {
 //            }
 
 //            AffirmationApp() // ABC; Unit 3; Pathway 2; Module 2
-            GridApp() // ABC; Unit 3; Pathway 2; Module 4
+//            GridApp() // ABC; Unit 3; Pathway 2; Module 4
+            WoofTheme { // ABC; Unit 3; Pathway 3
+                WoofApp()
+            }
         }
     }
 }

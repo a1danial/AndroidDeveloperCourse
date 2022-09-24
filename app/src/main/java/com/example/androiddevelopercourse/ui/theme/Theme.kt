@@ -45,3 +45,40 @@ fun AndroidDeveloperCourseTheme(
         content = content
     )
 }
+
+private val WoofDarkColorPalette = darkColors(
+    background = Cyan900,
+    surface = Cyan700,
+    onSurface = White,
+    primary = Grey900,
+    onPrimary = White,
+    secondary = Grey100
+)
+
+private val WoofLightColorPalette = lightColors(
+    background = Green100,
+    surface = Green50,
+    onSurface = Grey900,
+    primary = Grey50,
+    onPrimary = Grey900,
+    secondary = Grey700
+)
+
+@Composable
+fun WoofTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) {
+        WoofDarkColorPalette
+    } else {
+        WoofLightColorPalette
+    }
+
+    MaterialTheme(
+        colors = colors,
+        typography = Typography,
+        shapes = Shapes,
+        content = content
+    )
+}
