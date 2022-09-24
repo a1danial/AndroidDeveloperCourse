@@ -23,11 +23,7 @@ import com.example.androiddevelopercourse.A1ABC.Unit3_Path2.model.Affirmation
 @Composable
 fun AffirmationApp() {
     val context = LocalContext.current
-    Scaffold(
-        content = {
-            AffirmationList(affirmationList = Datasource().loadAffirmations())
-        }
-    )
+    AffirmationList(affirmationList = Datasource().loadAffirmations())
 }
 
 @Composable

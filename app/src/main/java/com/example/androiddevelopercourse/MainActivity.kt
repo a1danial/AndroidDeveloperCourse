@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevelopercourse.A1ABC.Unit3_Path2.AffirmationApp
+import com.example.androiddevelopercourse.A1ABC.Unit3_Path2.GridApp
 import com.example.androiddevelopercourse.ui.theme.AndroidDeveloperCourseTheme
 import com.example.diceroller.DiceRollerAppDebug
 import com.example.sqlbasics.AppDatabase
@@ -45,7 +46,8 @@ class MainActivity : ComponentActivity() {
 //
 //            }
 
-            AffirmationApp() // ABC; Unit 3; Pathway 2; Module 2
+//            AffirmationApp() // ABC; Unit 3; Pathway 2; Module 2
+            GridApp() // ABC; Unit 3; Pathway 2; Module 4
         }
     }
 }
