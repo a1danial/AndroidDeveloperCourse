@@ -63,6 +63,7 @@
     Unit 3: Display lists and use Material Design
     Path 3: Build beautiful apps
     -->
+    <string name="app_name_woof">Woof</string>
     <string name="dog_name_1">Koda</string>
     <string name="dog_name_2">Lola</string>
     <string name="dog_name_3">Frankie</string>
