@@ -9,3 +9,10 @@ val Shapes = Shapes(
     medium = RoundedCornerShape(16.dp),
     large = RoundedCornerShape(0.dp)
 )
+
+// ABC; Unit 3; Pathway 3; Module 5
+val SuperheroesShapes = Shapes(
+    small = RoundedCornerShape(8.dp),
+    medium = RoundedCornerShape(8.dp),
+    large = RoundedCornerShape(16.dp)
+)

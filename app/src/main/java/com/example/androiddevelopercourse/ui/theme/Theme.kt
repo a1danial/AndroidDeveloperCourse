@@ -82,3 +82,41 @@ fun WoofTheme(
         content = content
     )
 }
+
+// ABC; Unit 3; Pathway 3; Module 5
+private val SuperheroesDarkColorPalette = darkColors(
+    background = md_theme_dark_background,
+    surface = md_theme_dark_surface,
+    onSurface = md_theme_dark_onSurface,
+    primary = md_theme_dark_primary,
+    onPrimary = md_theme_dark_onPrimary,
+    secondary = md_theme_dark_secondary
+)
+
+private val SuperheroesLightColorPalette = lightColors(
+    background = md_theme_light_background,
+    surface = md_theme_light_surface,
+    onSurface = md_theme_light_onSurface,
+    primary = md_theme_light_primary,
+    onPrimary = md_theme_light_onPrimary,
+    secondary = md_theme_light_secondary
+)
+
+@Composable
+fun SuperheroesTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) {
+        SuperheroesDarkColorPalette
+    } else {
+        SuperheroesLightColorPalette
+    }
+
+    MaterialTheme(
+        colors = colors,
+        typography = SuperheroesTypography,
+        shapes = SuperheroesShapes,
+        content = content
+    )
+}

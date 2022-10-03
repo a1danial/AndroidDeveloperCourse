@@ -58,3 +58,30 @@ val Typography = Typography(
     )
     */
 )
+
+// ABC; Unit 3; Pathway 3; Module 5
+val Cabin = FontFamily(
+    Font(R.font.cabin_regular, FontWeight.Normal),
+    Font(R.font.cabin_bold, FontWeight.Bold)
+)
+// Set of Material typography styles to start with
+val SuperheroesTypography = Typography(
+    defaultFontFamily = Cabin,
+    h1 = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 30.sp
+    ),
+    h2 = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
+    ),
+    h3 = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp
+    ),
+
+    body1 = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    )
+)

@@ -13,4 +13,7 @@
 
     <color name="grey_50">#FFF8F9FA</color>
     <color name="grey_900">#FF202124</color>
+
+    <color name="md_theme_light_background">#FFFDFCF4</color>
+    <color name="md_theme_dark_background">#FF1B1C18</color>
 </resources>
