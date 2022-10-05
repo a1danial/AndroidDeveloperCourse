@@ -37,3 +37,9 @@ val md_theme_dark_secondary = Color(0xFFDDE6C6)
 val md_theme_dark_onSurface = Color(0xFFE4E3DB)
 val md_theme_dark_primary = Color(0xFFC1CAAB)
 val md_theme_dark_onPrimary = Color(0xFFDDE6C6)
+
+// ABC; Unit 4; Pathway 1; Module 2
+val DessertPurple200 = Color(0xFFBB86FC)
+val DessertPurple700 = Color(0xFF00574B)
+val DessertPink600 = Color(0xFFD81B60)
+val DessertGreen600 = Color(0xFF008577)

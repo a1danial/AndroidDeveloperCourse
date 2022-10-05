@@ -120,3 +120,34 @@ fun SuperheroesTheme(
         content = content
     )
 }
+
+private val DessertDarkColorPalette = darkColors(
+    primary = DessertPurple200,
+    primaryVariant = DessertPurple700,
+    secondary = DessertPink600
+)
+
+private val DessertLightColorPalette = lightColors(
+    primary = DessertGreen600,
+    primaryVariant = DessertPurple700,
+    secondary = DessertPink600
+)
+
+@Composable
+fun DessertClickerTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) {
+        DessertDarkColorPalette
+    } else {
+        DessertLightColorPalette
+    }
+
+    MaterialTheme(
+        colors = colors,
+        typography = DessertTypography,
+        shapes = DessertShapes,
+        content = content
+    )
+}
