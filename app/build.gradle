@@ -69,4 +69,6 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
 
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
 }
