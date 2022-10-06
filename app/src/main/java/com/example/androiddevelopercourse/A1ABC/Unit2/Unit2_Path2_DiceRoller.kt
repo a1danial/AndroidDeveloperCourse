@@ -21,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androiddevelopercourse.ui.theme.AndroidDeveloperCourseTheme
+import com.example.androiddevelopercourse.R
 
 class Unit2_Path2_DiceRoller : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
