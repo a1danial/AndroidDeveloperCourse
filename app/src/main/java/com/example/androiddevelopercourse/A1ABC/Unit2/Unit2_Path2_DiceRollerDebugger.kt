@@ -1,5 +1,3 @@
-package com.example.androiddevelopercourse
-
 /*
  * Copyright (C) 2022 The Android Open Source Project
  *
@@ -15,6 +13,7 @@ package com.example.androiddevelopercourse
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.example.androiddevelopercourse.A1ABC.Unit2
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -39,15 +38,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.androiddevelopercourse.R
 import com.example.androiddevelopercourse.ui.theme.AndroidDeveloperCourseTheme
+//import com.example.diceroller.ui.theme.DiceRollerTheme
 
-
-class Unit2_Path2_DiceRollerSolution : ComponentActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+//            DiceRollerTheme {
             AndroidDeveloperCourseTheme {
-                DiceRollerAppSolution()
+                DiceRollerAppDebug()
             }
         }
     }
@@ -55,16 +56,17 @@ class Unit2_Path2_DiceRollerSolution : ComponentActivity() {
 
 @Preview
 @Composable
-fun DiceRollerAppSolution() {
-    DiceWithButtonAndImageSolution(modifier = Modifier
+fun DiceRollerAppDebug() {
+    DiceWithButtonAndImageDebug(modifier = Modifier
         .fillMaxSize()
         .wrapContentSize(Alignment.Center)
     )
 }
 
 @Composable
-fun DiceWithButtonAndImageSolution(modifier: Modifier = Modifier) {
+fun DiceWithButtonAndImageDebug(modifier: Modifier = Modifier) {
     var result by remember { mutableStateOf( 1) }
+    var tempResult = result.toInt()
     val imageResource = when(result) {
         1 -> R.drawable.dice_1
         2 -> R.drawable.dice_2
