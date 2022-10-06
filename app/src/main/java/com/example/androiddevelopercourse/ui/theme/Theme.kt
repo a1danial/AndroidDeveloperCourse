@@ -151,3 +151,48 @@ fun DessertClickerTheme(
         content = content
     )
 }
+
+// ABC; Unit 4; Pathway 1; Module 5
+private val UnscrambledDarkColorPalette = darkColors(
+    primary = Indigo200,
+    primaryVariant = Indigo800,
+    secondary = Light_blue200,
+    onSecondary = Black,
+    onPrimary = Black,
+    secondaryVariant = Light_blue200,
+    onBackground = White,
+    onSurface = White,
+    background = Black,
+    surface = Black,
+    error = Red400
+)
+
+private val UnscrambledLightColorPalette = lightColors(
+    primary = Indigo500,
+    primaryVariant = Indigo800,
+    secondary = Light_blue200,
+    onSecondary = Black,
+    onPrimary = White,
+    secondaryVariant = Light_blue700,
+    onBackground = Black,
+    onSurface = Black,
+    background = White,
+    surface = White,
+    error = Red700
+)
+
+@Composable
+fun UnscrambleTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+    val colors = if (darkTheme) {
+        DarkColorPalette
+    } else {
+        LightColorPalette
+    }
+
+    MaterialTheme(
+        colors = colors,
+        typography = UnscrambledTypography,
+        shapes = Shapes,
+        content = content
+    )
+}

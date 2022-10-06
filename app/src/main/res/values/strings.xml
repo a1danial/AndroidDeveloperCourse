@@ -111,7 +111,7 @@
     Course: Android Basics with Compose
     Unit 4: Navigation and Architecture
     Path 1: Architecture Components
-    Module 5: Stages of the Activity lifecycle
+    Module 2: Stages of the Activity lifecycle
     -->
     <string name="app_name_dessert">Dessert Clicker</string>
     <string name="dessert_sold">Desserts sold</string>
@@ -119,5 +119,23 @@
     <string name="share">Share</string>
     <string name="share_text">I\'ve clicked %1$d Desserts for a total of $%2$d #AndroidDessertClicker</string>
     <string name="sharing_not_available">Sharing Not Available</string>
+
+    <!--
+    Course: Android Basics with Compose
+    Unit 4: Navigation and Architecture
+    Path 1: Architecture Components
+    Module 5: ViewModel and State in Compose
+    -->
+    <string name="app_name_unscramble">Unscramble</string>
+    <string name="instructions">Unscramble the word using all the letters.</string>
+    <string name="skip">Skip</string>
+    <string name="submit">Submit</string>
+    <string name="score">Score: %d</string>
+    <string name="word_count">%d of 10 words</string>
+    <string name="enter_your_word">Enter your word</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="you_scored">"You scored: %d"</string>
+    <string name="exit">Exit</string>
+    <string name="play_again">Play Again</string>
 
 </resources>

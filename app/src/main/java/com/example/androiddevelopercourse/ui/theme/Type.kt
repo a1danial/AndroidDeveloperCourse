@@ -104,3 +104,12 @@ val DessertTypography = Typography(
         fontSize = 20.sp
     )
 )
+
+// ABC; Unit 4; Pathway 1; Module 5
+val UnscrambledTypography = Typography(
+    body1 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    )
+)
