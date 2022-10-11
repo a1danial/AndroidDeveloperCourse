@@ -2,6 +2,7 @@ package com.example.androiddevelopercourse
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import com.example.androiddevelopercourse.A1ABC.Unit2.calculateCustomTip
 
 class Unit2_Path3_TipCalculatorTests {
 
