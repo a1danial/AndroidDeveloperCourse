@@ -9,7 +9,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-class GameViewModel: ViewModel() {
+class GameViewModel(
+    val wordsList: Set<String> = allWords
+): ViewModel() {
     // Game UI state
     private val _uiState = MutableStateFlow(GameUiState())
     // Backing property to avoid state updates from other classes
@@ -23,7 +25,7 @@ class GameViewModel: ViewModel() {
 
     private fun pickRandomWordAndShuffle(): String {
         // Continue picking up a new random word until you get one that hasn't been used before
-        currentWord = allWords.random()
+        currentWord = wordsList.random()
         if (usedWords.contains(currentWord)) {
             return pickRandomWordAndShuffle()
         } else {
