@@ -16,4 +16,12 @@
 
     <color name="md_theme_light_background">#FFFDFCF4</color>
     <color name="md_theme_dark_background">#FF1B1C18</color>
+
+    <!--
+    Course: Android Basics with Compose
+    Unit 4: Navigation and Architecture
+    Path 2: Navigation in Jetpack Compose
+    Module 2: Navigate between screens with Compose
+    -->
+    <color name="pink_600">#FFD81B60</color>
 </resources>
