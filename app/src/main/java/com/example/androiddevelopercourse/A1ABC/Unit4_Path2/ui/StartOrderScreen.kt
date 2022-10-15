@@ -36,7 +36,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androiddevelopercourse.R
-import com.example.androiddevelopercourse.A1ABC.Unit4_Path2.data.DataSource.quantityOptions
 
 /**
  * Composable that allows the user to select the desired cupcake quantity and expects
@@ -45,7 +44,7 @@ import com.example.androiddevelopercourse.A1ABC.Unit4_Path2.data.DataSource.quan
 @Composable
 fun StartOrderScreen(
     quantityOptions: List<Pair<Int, Int>>,
-    // TODO: add onNextButtonClicked
+    onNextButtonClicked: (Int) -> Unit,
     modifier: Modifier = Modifier
 ){
     Column(
@@ -57,7 +56,7 @@ fun StartOrderScreen(
         Image(
             painter = painterResource(R.drawable.cupcake),
             contentDescription = null,
-            modifier = Modifier.width(300.dp)
+            modifier = Modifier.width(150.dp)
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = stringResource(R.string.order_cupcakes), style = MaterialTheme.typography.h4)
@@ -65,7 +64,7 @@ fun StartOrderScreen(
         quantityOptions.forEach { item ->
             SelectQuantityButton(
                 labelResourceId = item.first,
-                onClick = { /* TODO: handle next button */ }
+                onClick = { onNextButtonClicked(item.second) }
             )
         }
     }
@@ -92,5 +91,5 @@ fun SelectQuantityButton(
 @Preview
 @Composable
 fun StartOrderPreview(){
-    StartOrderScreen(quantityOptions = quantityOptions)
+//    StartOrderScreen(quantityOptions = quantityOptions)
 }
