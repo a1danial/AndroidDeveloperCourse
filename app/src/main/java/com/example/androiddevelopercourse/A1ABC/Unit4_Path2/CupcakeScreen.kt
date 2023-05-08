@@ -17,6 +17,7 @@ package com.example.androiddevelopercourse.A1ABC.Unit4_Path2
 
 import android.content.Context
 import android.content.Intent
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -45,11 +46,11 @@ import com.example.androiddevelopercourse.A1ABC.Unit4_Path2.ui.SelectOptionScree
 import com.example.androiddevelopercourse.A1ABC.Unit4_Path2.ui.StartOrderScreen
 import com.example.androiddevelopercourse.R
 
-enum class CupcakeScreen() {
-    Start,
-    Flavor,
-    Pickup,
-    Summary
+enum class CupcakeScreen(@StringRes val title: Int) {
+    Start(title = R.string.app_name),
+    Flavor(title = R.string.choose_flavor),
+    Pickup(title = R.string.choose_pickup_date),
+    Summary(title = R.string.order_summary)
 }
 
 /**
@@ -63,7 +64,8 @@ fun CupcakeAppBar(
     currentScreen: CupcakeScreen
 ) {
     TopAppBar(
-        title = { Text(currentScreen.name) },
+//        title = { Text(currentScreen.name) },
+        title = { Text(stringResource(currentScreen.title)) },
 //        title = { Text(stringResource(id = R.string.app_name)) },
         modifier = modifier,
         navigationIcon = {

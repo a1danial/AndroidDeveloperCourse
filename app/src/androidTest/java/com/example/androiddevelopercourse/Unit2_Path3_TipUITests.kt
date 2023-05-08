@@ -4,6 +4,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performTextInput
+import com.example.androiddevelopercourse.A1ABC.Unit2.CustomTipScreen
 import com.example.androiddevelopercourse.ui.theme.AndroidDeveloperCourseTheme
 import org.junit.Rule
 import org.junit.Test
