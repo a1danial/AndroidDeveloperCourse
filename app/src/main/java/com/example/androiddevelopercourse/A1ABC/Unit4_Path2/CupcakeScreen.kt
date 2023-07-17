@@ -47,7 +47,7 @@ import com.example.androiddevelopercourse.A1ABC.Unit4_Path2.ui.StartOrderScreen
 import com.example.androiddevelopercourse.R
 
 enum class CupcakeScreen(@StringRes val title: Int) {
-    Start(title = R.string.app_name),
+    Start(title = R.string.app_name_cupcake),
     Flavor(title = R.string.choose_flavor),
     Pickup(title = R.string.choose_pickup_date),
     Summary(title = R.string.order_summary)
@@ -84,10 +84,9 @@ fun CupcakeAppBar(
 @Composable
 fun CupcakeApp(
     modifier: Modifier = Modifier,
-    viewModel: OrderViewModel = viewModel()
+    viewModel: OrderViewModel = viewModel(),
+    navController: NavHostController = rememberNavController()
 ){
-    val navController = rememberNavController()
-
     val backStackEntry by navController.currentBackStackEntryAsState()
 
     val currentScreen = CupcakeScreen.valueOf(
